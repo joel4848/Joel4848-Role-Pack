@@ -1,5 +1,22 @@
 AddCSLuaFile()
 
+local hook = hook
+local table = table
+
+local AddHook = hook.Add
+
+-- Initialize role features
+SNIFFLER_UNSCANNED          = 0
+SNIFFLER_SCANNED_INV_TOTAL  = 1
+SNIFFLER_SCANNED_SHOP_ITEMS = 2
+SNIFFLER_SCANNED_ROLE_ITEMS = 3
+
+SNIFFLER_SCANNER_IDLE      = 0
+SNIFFLER_SCANNER_LOCKED    = 1
+SNIFFLER_SCANNER_SEARCHING = 2
+SNIFFLER_SCANNER_LOST      = 3
+SNIFFLER_SCANNER_WAITING   = 4
+
 CreateConVar("ttt_sniffler_scanner_time", "15", FCVAR_REPLICATED, "The amount of time (in seconds) the sniffler's scanner takes to use", 0, 60)
 CreateConVar("ttt_sniffler_rescan_time", "30", FCVAR_REPLICATED, "The amount of time (in seconds) before the sniffler can scan a player again", 0, 60)
 local sniffler_requires_scanner = CreateConVar("ttt_sniffler_requires_scanner", "0", FCVAR_REPLICATED)
@@ -19,11 +36,6 @@ ROLE.shortdesc = "Trail other players to sniff out whether they have any contrab
 
 ROLE.team = ROLE_TEAM_DETECTIVE
 
-ROLE.shop = {}
-ROLE.loadout = {}
-
-ROLE.shopsyncroles = {ROLE_DETECTIVE}
-
 ROLE.convars = {
     {cvar = "ttt_sniffler_requires_scanner",   type = ROLE_CONVAR_TYPE_BOOL},
     {cvar = "ttt_sniffler_scanner_time",       type = ROLE_CONVAR_TYPE_NUM, decimal = 0},
@@ -34,23 +46,6 @@ ROLE.convars = {
 }
 
 RegisterRole(ROLE)
-
-local hook = hook
-local table = table
-
-local AddHook = hook.Add
-
--- Initialize role features
-SNIFFLER_UNSCANNED          = 0
-SNIFFLER_SCANNED_INV_TOTAL  = 1
-SNIFFLER_SCANNED_SHOP_ITEMS = 2
-SNIFFLER_SCANNED_ROLE_ITEMS = 3
-
-SNIFFLER_SCANNER_IDLE      = 0
-SNIFFLER_SCANNER_LOCKED    = 1
-SNIFFLER_SCANNER_SEARCHING = 2
-SNIFFLER_SCANNER_LOST      = 3
-SNIFFLER_SCANNER_WAITING   = 4
 
 -----------------
 -- ROLE WEAPON --
