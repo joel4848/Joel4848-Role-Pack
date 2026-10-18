@@ -282,18 +282,18 @@ end
 -- HITMARKERS --
 ----------------
 
-local function Sniffler_TTTDrawHitMarker(victim, dmginfo)
-    local att = dmginfo:GetAttacker()
-    if not IsPlayer(att) or not IsPlayer(victim) then return end
-
-    if victim:GetNWInt("TTTSnifflerScanStage", SNIFFLER_UNSCANNED) ~= SNIFFLER_SCANNED_SHOP_ITEMS then return end
-
-    if not att:IsSniffler() and not (sniffler_share_scans:GetBool() and att:IsTraitorTeam()) then return end
-
-    if victim:IsJester() or victim:IsSwapper() or victim:IsGuesser() or (victim:IsBeggar() and GetConVar("ttt_beggar_respawn_change_role"):GetBool()) then
-        return true, false, false, true
-    end
-end
+-- local function Sniffler_TTTDrawHitMarker(victim, dmginfo)
+--     local att = dmginfo:GetAttacker()
+--     if not IsPlayer(att) or not IsPlayer(victim) then return end
+-- 
+--     if victim:GetNWInt("TTTSnifflerScanStage", SNIFFLER_UNSCANNED) ~= SNIFFLER_SCANNED_SHOP_ITEMS then return end
+-- 
+--     if not att:IsSniffler() and not (sniffler_share_scans:GetBool() and att:IsTraitorTeam()) then return end
+-- 
+--     if victim:IsJester() or victim:IsSwapper() or victim:IsGuesser() or (victim:IsBeggar() and GetConVar("ttt_beggar_respawn_change_role"):GetBool()) then
+--         return true, false, false, true
+--     end
+-- end
 
 ------------------
 -- REGISTRATION --

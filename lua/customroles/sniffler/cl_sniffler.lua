@@ -203,7 +203,7 @@ local function SeekLootRoles()
         for _, target in PlayerIterator() do
             if not IsValid(target) or target == ply then continue end
             if not target:Alive() or target:IsSpec() then continue end
-            if not (target:IsActiveLootGoblin() or target:IsPinata()) then continue end
+            if not ((target:IsLootGoblin() and target:IsRoleActive()) or target:IsPinata()) then continue end
 
             local distSqr = ply:GetPos():DistToSqr(target:GetPos())
             if distSqr < minDistSqr then
