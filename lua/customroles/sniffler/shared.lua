@@ -17,7 +17,7 @@ SNIFFLER_SCANNER_SEARCHING = 2
 SNIFFLER_SCANNER_LOST      = 3
 SNIFFLER_SCANNER_WAITING   = 4
 
-CreateConVar("ttt_sniffler_scanner_time", "15", FCVAR_REPLICATED, "The amount of time (in seconds) the sniffler's scanner takes to use", 0, 60)
+CreateConVar("ttt_sniffler_scanner_time", "5", FCVAR_REPLICATED, "The amount of time (in seconds) the sniffler's scanner takes to use", 0, 60)
 CreateConVar("ttt_sniffler_rescan_time", "30", FCVAR_REPLICATED, "The amount of time (in seconds) before the sniffler can scan a player again", 0, 60)
 local sniffler_requires_scanner = CreateConVar("ttt_sniffler_requires_scanner", "0", FCVAR_REPLICATED)
 local sniffler_is_innocent = CreateConVar("ttt_sniffler_is_innocent", "0", FCVAR_REPLICATED, "Whether the sniffler should be treated as a special innocent", 0, 1)
